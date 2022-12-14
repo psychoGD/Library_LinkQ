@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="Library_LinkQ.UserControls.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Library_LinkQ.UserControls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="#F2E5D0">
+
+        <!--<Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        --><!--<Canvas Grid.Row="0">
+            
+            
+        </Canvas>-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="0,0,0,1" >
+                <Grid Height="70" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding WelcomeMessage,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontSize="20" FontWeight="Bold"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    
+                    <StackPanel Grid.Column="2" Height="50" Orientation="Horizontal" HorizontalAlignment="Right">
+
+                        <Button Style="{StaticResource MyButton}"
+                            ToolTip="My Favorites Books"
+                                Margin="10" 
+                                Canvas.Right="100" 
+                                Background="Transparent"
+                                Width="30" Height="30" 
+                                BorderThickness="0">
+                            <Image Source="..\Images\favorite.png" Stretch="Fill"></Image>
+                        </Button>
+                    
+                        <Button Style="{StaticResource  MyButton}"
+                            ToolTip="My Rented Books"
+                                Margin="10" Canvas.Right="70" 
+                                Background="Transparent"
+                                Width="30" Height="30" 
+                                BorderThickness="0">
+                            <Image Source="..\Images\Books80px.png" Stretch="Fill"></Image>
+                        </Button>
+                        <Button Style="{StaticResource  MyButton}"
+                            ToolTip="Profile" 
+                            Background="Transparent" 
+                            Width="50" Height="50" 
+                            Canvas.Right="0" 
+                            BorderThickness="0">
+                            <Image Source="..\Images\maleicon.png" Stretch="UniformToFill"></Image>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal"
+                                    VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Width="50" Height="50" Source="..\Images\Books.png"></Image>
+                        <Label Content="Library"
+                                   FontSize="20"
+                               FontFamily="Montsserrat" 
+                               FontWeight="SemiBold"
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                               ></Label>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding Books}" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
+            
+        </Grid>
+    </Grid>
+</UserControl>
