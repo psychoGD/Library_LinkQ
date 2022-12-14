@@ -78,7 +78,8 @@
                             Background="Transparent" 
                             Width="50" Height="50" 
                             Canvas.Right="0" 
-                            BorderThickness="0">
+                            BorderThickness="0"
+                            Command="{Binding ProfileCommand}">
                             <Image Source="..\Images\maleicon.png" Stretch="UniformToFill"></Image>
                         </Button>
                     </StackPanel>

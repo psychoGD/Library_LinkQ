@@ -31,17 +31,38 @@ namespace Library_LinkQ.ViewModels
             set { welcomeMessage = value;OnPropertyChanged(); }
         }
 
+        public RelayCommand ProfileCommand { get; set; }
 
-        public MainMenuVM()
+        public void WelcomeMessageFunc()
         {
-            if(student== null)
+            //TEST------------------------------
+            //try
+            //{
+            //    MessageBox.Show(student.FirstName);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+                
+            //}
+            
+            if (student == null)
             {
-                welcomeMessage = BaseMessage + "Guest";
+                WelcomeMessage = BaseMessage + "Guest";
             }
             else
             {
-                welcomeMessage = BaseMessage + student.FirstName;
+                WelcomeMessage = BaseMessage + student.FirstName;
             }
+        }
+
+        public void RefreshWelcomeMessage()
+        {
+            WelcomeMessageFunc();
+        }
+        public MainMenuVM()
+        {
+            WelcomeMessageFunc();
             Books= new ObservableCollection<BookUC>();
             var bookArr = App.dtx.Books.ToList();
             for (int i = 0; i < App.dtx.Books.Count(); i++)
@@ -52,6 +73,18 @@ namespace Library_LinkQ.ViewModels
                 book.DataContext = bookVM; 
                 Books.Add(book);
             }
+
+            ProfileCommand = new RelayCommand(o =>
+            {
+                if (student == null)
+                {
+                    var view = new SignInMenu();
+                    var vm = new SignInMenuVM();
+                    view.DataContext= vm;
+                    App.MainGrid.Children.Add(view);
+                }
+            });
+
 
             //for (int i = 0; i < 15; i++)
             //{

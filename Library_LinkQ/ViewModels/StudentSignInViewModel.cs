@@ -45,6 +45,8 @@ namespace Library_LinkQ.ViewModels
                         App.DeleteLastView();
                         //this for main menu view model current student
                         App.mainMenuVM.student=student;
+                        App.mainMenuVM.RefreshWelcomeMessage();
+
                     }
                 }
             });
