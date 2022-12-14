@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Library_LinkQ.UserControls"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:Library_LinkQ.UserControls" 
+             xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
+          
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -60,37 +63,37 @@
         <Button Width="100" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" 
                 Command="{Binding BackCommand}" Content="Back"></Button>
         <TabControl BorderThickness="0,3,0,0" BorderBrush="#21B9BD">
-            <TabItem Header="Products">
-                <DataGrid ItemsSource="{Binding Products,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            <TabItem Header="Books">
+                <DataGrid ItemsSource="{Binding Books,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" >
+                    
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Rented Books">
+                <DataGrid ItemsSource="{Binding RentedBooks,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
 
                 </DataGrid>
             </TabItem>
-            <TabItem Header="Orders">
-                <DataGrid ItemsSource="{Binding Orders,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-
-                </DataGrid>
-            </TabItem>
-            <TabItem Header="Add Product">
+            <TabItem Header="Add Book">
                 <StackPanel>
-                    <TextBlock Text="Product Name" Style="{StaticResource TxtBlock}"></TextBlock>
+                    <TextBlock Text="Book Name" Style="{StaticResource TxtBlock}"></TextBlock>
                     <TextBox Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
 
-                    <TextBlock Text="Product Description" Style="{StaticResource TxtBlock}"></TextBlock>
-                    <TextBox Text="{Binding Description,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    <TextBlock Text="Book Pages" Style="{StaticResource TxtBlock}"></TextBlock>
+                    <TextBox Text="{Binding Pages,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
 
-                    <TextBlock Text="Product Price" Style="{StaticResource TxtBlock}"></TextBlock>
-                    <TextBox Text="{Binding Price,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    <TextBlock Text="Book Year Press" Style="{StaticResource TxtBlock}"></TextBlock>
+                    <TextBox Text="{Binding YearPress,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
 
-                    <TextBlock Text="Product Discount" Style="{StaticResource TxtBlock}"></TextBlock>
-                    <TextBox Text="{Binding Discount,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    <TextBlock Text="Book Comment" Style="{StaticResource TxtBlock}"></TextBlock>
+                    <TextBox Text="{Binding Comment,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
 
-                    <TextBlock Text="Product Quantity" Style="{StaticResource TxtBlock}"></TextBlock>
+                    <TextBlock Text="Book Quantity" Style="{StaticResource TxtBlock}"></TextBlock>
                     <TextBox Text="{Binding Quantity,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
 
                     <Button Width="200" Background="Black" 
                     Foreground="White" Height="35"
-                    Content="Add Product" FontSize="20"
-                    Command="{Binding AddProductCommand}"
+                    Content="Add Book" FontSize="20"
+                    Command="{Binding AddBookCommand}"
                     ></Button>
                 </StackPanel>
             </TabItem>
