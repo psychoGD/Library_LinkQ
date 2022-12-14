@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BookUCVM.cs" />
+    <Compile Include="ViewModels\LibrarianMenuViewModel.cs" />
     <Compile Include="ViewModels\LibrarianSignInViewModel.cs" />
     <Compile Include="ViewModels\MainMenuVM.cs" />
     <Compile Include="ViewModels\SignInMenuVM.cs" />

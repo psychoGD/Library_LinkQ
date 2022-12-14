@@ -3,9 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:Library_LinkQ.UserControls" 
-             xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
           
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -65,7 +64,11 @@
         <TabControl BorderThickness="0,3,0,0" BorderBrush="#21B9BD">
             <TabItem Header="Books">
                 <DataGrid ItemsSource="{Binding Books,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" >
-                    
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding DeleteCommand}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                 </DataGrid>
             </TabItem>
             <TabItem Header="Rented Books">
