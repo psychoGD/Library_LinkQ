@@ -68,6 +68,9 @@
     <Compile Include="UserControls\BookUC.xaml.cs">
       <DependentUpon>BookUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LibrarianMenuUC.xaml.cs">
+      <DependentUpon>LibrarianMenuUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LibrarianSignInUC.xaml.cs">
       <DependentUpon>LibrarianSignInUC.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\BookUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LibrarianMenuUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
