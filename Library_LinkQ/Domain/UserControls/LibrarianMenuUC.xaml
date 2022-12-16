@@ -64,16 +64,16 @@
         <TabControl BorderThickness="0,3,0,0" BorderBrush="#21B9BD">
             <TabItem Header="Books">
                 <DataGrid ItemsSource="{Binding Books,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" >
+                    
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Rented Books">
+                <DataGrid ItemsSource="{Binding RentedBooks,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseDoubleClick">
                             <i:InvokeCommandAction Command="{Binding DeleteCommand}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-                </DataGrid>
-            </TabItem>
-            <TabItem Header="Rented Books">
-                <DataGrid ItemsSource="{Binding RentedBooks,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-
                 </DataGrid>
             </TabItem>
             <TabItem Header="Add Book">
