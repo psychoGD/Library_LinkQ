@@ -28,7 +28,15 @@
                      Height="30" BorderThickness="0,0,0,3" 
                      Margin="0,0,0,10"
                      ></TextBox>
-            
+
+            <TextBox Text="{Binding Lastname,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                     Background="LightGray" Width="300" 
+                     Style="{StaticResource SignInTextBox}"
+                     HorizontalContentAlignment="Center" 
+                     Height="30" BorderThickness="0,0,0,3" 
+                     Margin="0,0,0,10"
+                     ></TextBox>
+
             <Button Width="200" Background="Black" 
                     Foreground="White" Height="35"
                     Content="Sign In" FontSize="20"

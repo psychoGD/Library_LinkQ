@@ -35,9 +35,10 @@
         </Image>
         <StackPanel VerticalAlignment="Center">
             <Button  Style="{StaticResource MyButton}" 
-                Margin="10" Width="200" 
+                    Margin="10" Width="200" 
                     Name="librarianBtn" Content="librarian" 
                     Foreground="AntiqueWhite" FontSize="20" Background="DarkSlateGray" BorderBrush="AliceBlue"
+                     Command="{Binding LibrarianCommand}"
                     >
                 <!--<i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseEnter" >

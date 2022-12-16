@@ -69,6 +69,15 @@ namespace Library_LinkQ
                 App.MainGrid.Children.Add(view);
 
             });
+
+            LibrarianCommand = new RelayCommand(o =>
+            {
+                App.DeleteLastView();
+                var view = new LibrarianSignInUC();
+                var vm = new LibrarianSignInViewModel();
+                view.DataContext= vm;
+                App.MainGrid.Children.Add(view);
+            });
         }
     }
 }

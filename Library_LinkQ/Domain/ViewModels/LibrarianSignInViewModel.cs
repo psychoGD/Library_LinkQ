@@ -1,9 +1,12 @@
 ﻿using Library_LinkQ.Commands;
+using Library_LinkQ.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Animation;
 
 namespace Library_LinkQ.ViewModels
@@ -22,6 +25,14 @@ namespace Library_LinkQ.ViewModels
             set { username = value;OnPropertyChanged(); }
         }
 
+        private string lastname;
+
+        public string Lastname
+        {
+            get { return username; }
+            set { username = value; OnPropertyChanged(); }
+        }
+
         public LibrarianSignInViewModel()
         {
             BackCommand = new RelayCommand(o =>
@@ -31,11 +42,21 @@ namespace Library_LinkQ.ViewModels
 
             LoginCommand = new RelayCommand(o =>
             {
-                var librarian = App.dtx.Libs.FirstOrDefault(b => b.FirstName== username);
-                
-                if (librarian != null)
+                var librarianList = from l in App.dtx.Libs
+                                where l.FirstName == Username && l.LastName == Lastname
+                                select l;
+                var librarian = librarianList.First();
+                if(librarian != null)
                 {
-                    
+                    App.DeleteLastView();
+                    var view = new LibrarianMenuUC();
+                    var vm = new LibrarianMenuViewModel();
+                    view.DataContext = vm;
+                    App.MainGrid.Children.Add(view);
+                }
+                else
+                {
+                    MessageBox.Show($"This Username Isnt Exist: {username}");
                 }
 
             });

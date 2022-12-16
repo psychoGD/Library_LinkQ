@@ -2,6 +2,8 @@
 using Library_LinkQ.DataAccess.SqlServer;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Linq;
 using System.Linq;
 using System.Security.Permissions;
 using System.Text;
@@ -16,11 +18,14 @@ namespace Library_LinkQ.ViewModels
         public RelayCommand BackCommand { get; set; }
         public RelayCommand AddBookCommand { get; set; }
         public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand SelectionChangedCommand { get; set; }
 
+        public ObservableCollection<Book> Books { get; set; }
+        public ObservableCollection<Book> RentedBooks { get; set; }
 
-        public List<Book> Books { get; set; }
-        public List<Book> RentedBooks { get; set; }
+        public Book SelectedBook { get; set; }
 
+        public Lib CurrentLibrarian { get; set; }
 
         private string name;
 
@@ -64,6 +69,15 @@ namespace Library_LinkQ.ViewModels
 
         public LibrarianMenuViewModel()
         {
+            var books = from p in App.dtx.Books
+                           select p;
+            Books =  new ObservableCollection<Book>(books);
+
+
+            var rentedBooks = from p in App.dtx.Books
+                           select p;
+            RentedBooks = new ObservableCollection<Book>(rentedBooks);
+
             BackCommand = new RelayCommand(o =>
             {
                 App.DeleteLastView();
@@ -80,10 +94,15 @@ namespace Library_LinkQ.ViewModels
                 App.dtx.SubmitChanges();
             });
 
+            SelectionChangedCommand = new RelayCommand(o =>
+            {
+
+            });
+
             DeleteCommand = new RelayCommand(o =>
             {
                 //var result = MessageBox.Show("")
-
+                //App.dtx.Books.DeleteOnSubmit()
             });
         }
     }
