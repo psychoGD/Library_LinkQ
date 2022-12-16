@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Library_LinkQ.ViewModels
 {
@@ -76,6 +77,12 @@ namespace Library_LinkQ.ViewModels
                 book.Pages = Pages;
                 App.dtx.Books.InsertOnSubmit(book);
                 App.dtx.SubmitChanges();
+            });
+
+            DeleteCommand = new RelayCommand(o =>
+            {
+                //var result = MessageBox.Show("")
+
             });
         }
     }

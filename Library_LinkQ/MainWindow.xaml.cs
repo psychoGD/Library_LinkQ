@@ -37,8 +37,6 @@ namespace Library_LinkQ
             MainMenu.DataContext = App.mainMenuVM;
             MainGrid.Children.Insert(0, MainMenu);
 
-            var lm = new LibrarianMenuUC();
-            MainGrid.Children.Add(lm);
             
         }
 
