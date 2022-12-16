@@ -60,36 +60,37 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="LibraryDataClasses.designer.cs">
+    <Compile Include="Domain\Abstraction\IRepository.cs" />
+    <Compile Include="DataAccess\SqlServer\LibraryDataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryDataClasses.dbml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\BookUC.xaml.cs">
+    <Compile Include="Domain\UserControls\BookUC.xaml.cs">
       <DependentUpon>BookUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\LibrarianMenuUC.xaml.cs">
+    <Compile Include="Domain\UserControls\LibrarianMenuUC.xaml.cs">
       <DependentUpon>LibrarianMenuUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\LibrarianSignInUC.xaml.cs">
+    <Compile Include="Domain\UserControls\LibrarianSignInUC.xaml.cs">
       <DependentUpon>LibrarianSignInUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\MainMenu.xaml.cs">
+    <Compile Include="Domain\UserControls\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StudentSignInUC.xaml.cs">
+    <Compile Include="Domain\UserControls\StudentSignInUC.xaml.cs">
       <DependentUpon>StudentSignInUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\BookUCVM.cs" />
-    <Compile Include="ViewModels\LibrarianMenuViewModel.cs" />
-    <Compile Include="ViewModels\LibrarianSignInViewModel.cs" />
-    <Compile Include="ViewModels\MainMenuVM.cs" />
-    <Compile Include="ViewModels\SignInMenuVM.cs" />
-    <Compile Include="UserControls\SignInMenu.xaml.cs">
+    <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Domain\ViewModels\BookUCVM.cs" />
+    <Compile Include="Domain\ViewModels\LibrarianMenuViewModel.cs" />
+    <Compile Include="Domain\ViewModels\LibrarianSignInViewModel.cs" />
+    <Compile Include="Domain\ViewModels\MainMenuVM.cs" />
+    <Compile Include="Domain\ViewModels\SignInMenuVM.cs" />
+    <Compile Include="Domain\UserControls\SignInMenu.xaml.cs">
       <DependentUpon>SignInMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\StudentSignInViewModel.cs" />
+    <Compile Include="Domain\ViewModels\StudentSignInViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,27 +103,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControls\BookUC.xaml">
+    <Page Include="Domain\UserControls\BookUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\LibrarianMenuUC.xaml">
+    <Page Include="Domain\UserControls\LibrarianMenuUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\LibrarianSignInUC.xaml">
+    <Page Include="Domain\UserControls\LibrarianSignInUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\MainMenu.xaml">
+    <Page Include="Domain\UserControls\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\SignInMenu.xaml">
+    <Page Include="Domain\UserControls\SignInMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\StudentSignInUC.xaml">
+    <Page Include="Domain\UserControls\StudentSignInUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,12 +146,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="LibraryDataClasses.dbml">
+    <None Include="DataAccess\SqlServer\LibraryDataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>LibraryDataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="LibraryDataClasses.dbml.layout">
+    <None Include="DataAccess\SqlServer\LibraryDataClasses.dbml.layout">
       <DependentUpon>LibraryDataClasses.dbml</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -163,38 +164,36 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\favorite.png" />
+    <Resource Include="Domain\Images\favorite.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\librarian.jpg" />
-    <Resource Include="Images\StudentLibrary.jpg" />
+    <Resource Include="Domain\Images\librarian.jpg" />
+    <Resource Include="Domain\Images\StudentLibrary.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Library.jpg" />
+    <Resource Include="Domain\Images\Library.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Books.png" />
+    <Resource Include="Domain\Images\Books.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\defaultAvatar.jpg" />
+    <Resource Include="Domain\Images\defaultAvatar.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\shopping.png" />
+    <Resource Include="Domain\Images\shopping.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\defaultUser.png" />
+    <Resource Include="Domain\Images\defaultUser.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Books80px.png" />
+    <Resource Include="Domain\Images\Books80px.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\maleIcon.png" />
+    <Resource Include="Domain\Images\maleIcon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAccess\SqlServer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
