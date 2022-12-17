@@ -28,9 +28,9 @@ namespace Library_LinkQ.ViewModels
         private string lastname;
 
         public string Lastname
-        {
-            get { return username; }
-            set { username = value; OnPropertyChanged(); }
+        { 
+            get { return lastname; }
+            set { lastname = value; OnPropertyChanged(); }
         }
 
         public LibrarianSignInViewModel()
@@ -45,7 +45,7 @@ namespace Library_LinkQ.ViewModels
                 var librarianList = from l in App.dtx.Libs
                                 where l.FirstName == Username && l.LastName == Lastname
                                 select l;
-                var librarian = librarianList.First();
+                var librarian = App.dtx.Libs.ToList();
                 if(librarian != null)
                 {
                     App.DeleteLastView();
